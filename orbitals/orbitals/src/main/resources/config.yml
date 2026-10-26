@@ -1,0 +1,39 @@
+# Max distance (blocks) you can aim an orbital at.
+range: 200
+
+# Every orbital is a single-use fishing rod with no cooldown: right-click to fire, the rod breaks.
+# Note: TNT hurts you too if you stand near the target. On Spigot/Paper raise "max-tnt-per-tick"
+# in spigot.yml (e.g. 1000) so big nukes detonate smoothly. A full nuke is roughly 1000 TNT:
+# if your server lags, lower ring-count or layers below.
+
+# Nuke: layered carpet of TNT falling from the sky; each TNT explodes the moment it lands.
+nuke:
+  ring-count: 12        # rings per layer
+  ring-gap: 3.0         # blocks between rings
+  tnt-spacing: 3.0      # blocks between TNT along a ring (smaller = denser)
+  center-count: 40      # TNT in the centre cluster of each layer
+  layers: 2             # how many carpets fall, one after another
+  layer-gap: 8.0        # extra height of each later layer
+  layer-delay-ticks: 10 # delay between layers
+  drop-height: 70       # how high above the target the first layer starts
+  max-fuse: 200         # safety fuse (ticks) in case a TNT never lands, e.g. in water
+
+# Stab: short-fuse TNT dropped down one column from the target to the bottom of the world.
+stab:
+  spacing: 3          # blocks between each TNT group going down
+  tnt-count: 5        # TNT per group
+  steps-per-tick: 3   # how many groups per tick (higher = faster drill)
+
+# Mob orbital: the mob type is chosen when you give the item: /orbital give mob <mob>
+mob:
+  default-type: ZOMBIE  # used by /orbital give all
+  amount: 25
+  spread: 5.0
+  lifetime-seconds: 60
+
+# Wither cannon: blue wither skulls appear in a sphere above the target, then fly in at it.
+wither:
+  skull-count: 100
+  sphere-size: 9.0     # radius of the sphere
+  hover-height: 35     # how high above the target the sphere appears
+  yield: 2.5
